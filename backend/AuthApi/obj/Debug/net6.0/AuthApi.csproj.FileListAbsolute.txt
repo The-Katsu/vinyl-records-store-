@@ -52,3 +52,8 @@ C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\AuthApi.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\ref\AuthApi.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\AuthApi.pdb
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\AuthApi.genruntimeconfig.cache
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\AuthApi.MvcApplicationPartsAssemblyInfo.cs
