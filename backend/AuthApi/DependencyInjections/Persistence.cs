@@ -9,6 +9,8 @@ namespace AuthApi.DependencyInjections
             services.AddDbContext<AuthDbContext>(options => {options.UseSqlServer(connectionString);});
 
             //Repository Injection
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<IEmailRepository, EmailRepository>();
 
             return services;
         }

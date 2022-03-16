@@ -4,7 +4,6 @@ namespace AuthApi.DependencyInjections
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             return services;
         }

@@ -1,6 +1,6 @@
 namespace AuthApi.Apis
 {
-    public class AddressApi
+    public class AddressesApi
     {
         public void Register(WebApplication app)
         {
