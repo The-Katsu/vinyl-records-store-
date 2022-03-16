@@ -4,17 +4,17 @@ namespace AuthApi.Apis
     {
         public void Register(WebApplication app)
         {
-            app.MapGet("/countries", async (IGenericRepository<Country> repo) =>
-                await repo.GetAllAsync())
+            app.MapGet("/countries", async (IGenericRepository<Country> repo, IMapper mapper) => 
+                mapper.Map<List<CountryVm>>(await repo.GetAllAsync()))
                 .WithTags("Getters");
 
-            app.MapGet("/countries/{id}", async (Guid id, IGenericRepository<Country> repo) => {
-                var entity = await repo.GetAsync(id);})
+            app.MapGet("/countries/{id}", async (Guid id, IGenericRepository<Country> repo, IMapper mapper) => 
+                mapper.Map<CountryVm>(await repo.GetAsync(id)))
                 .WithTags("Getters");
 
-            app.MapPost("/countries", async ([FromBody] Country entity, IGenericRepository<Country> repo) => {
-                await repo.InsertAsync(entity);
-                return Results.Created($"/countries/{entity.Id}", entity);})
+            app.MapPost("/countries", async ([FromBody] CreateCountryDto entity, IGenericRepository<Country> repo, IMapper mapper) => {
+                await repo.InsertAsync(mapper.Map<Country>(entity));
+                return Results.Ok();})
                 .WithTags("Creators");
 
             app.MapPut("/countries", async ([FromBody] Country entity, IGenericRepository<Country> repo) => {

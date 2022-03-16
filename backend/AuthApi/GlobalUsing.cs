@@ -9,5 +9,10 @@ global using AuthApi.DependencyInjections;
 global using AuthApi.Application.Interfaces;
 global using AuthApi.Application.Implementations;
 global using AuthApi.Apis;
+global using AuthApi.Application.Common.Mapping;
+global using AuthApi.Models.DTO;
+global using AuthApi.Models.VM;
 
 global using Microsoft.EntityFrameworkCore;
+global using System.Reflection;
+global using AutoMapper;

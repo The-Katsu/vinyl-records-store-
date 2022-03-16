@@ -57,3 +57,5 @@ C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.A
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\AuthApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
