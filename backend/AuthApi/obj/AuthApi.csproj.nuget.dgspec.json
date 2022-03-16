@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj": {}
+    "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj": {
+    "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
+        "projectUniqueName": "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
         "projectName": "AuthApi",
-        "projectPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
+        "projectPath": "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
         "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\obj\\",
+        "outputPath": "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,7 +21,6 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -48,6 +47,10 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.3, )"
@@ -56,9 +59,17 @@
               "target": "Package",
               "version": "[6.0.3, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.16.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.3.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.16.0, )"
             }
           },
           "imports": [
