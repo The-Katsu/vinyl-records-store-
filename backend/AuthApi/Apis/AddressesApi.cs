@@ -4,22 +4,21 @@ namespace AuthApi.Apis
     {
         public void Register(WebApplication app)
         {
-            app.MapGet("/addresses", async (IGenericRepository<Address> repo) =>
-                await repo.GetAllAsync())
+            app.MapGet("/addresses", async (IGenericRepository<Address> repo, IMapper mapper) =>
+                mapper.Map<List<AddressVm>>(await repo.GetAllAsync()))
                 .WithTags("Getters");
 
-            app.MapGet("/addresses/{id}", async (Guid id, IGenericRepository<Address> repo) => {
-                var entity = await repo.GetAsync(id);
-                return Results.Ok(entity);})
+            app.MapGet("/addresses/{id}", async (Guid id, IGenericRepository<Address> repo, IMapper mapper) => 
+                mapper.Map<AddressVm>(await repo.GetAsync(id)))
                 .WithTags("Getters");
 
-            app.MapPost("/addresses", async ([FromBody] Address entity, IGenericRepository<Address> repo) => {
-                await repo.InsertAsync(entity);
-                return Results.Created($"/addresses/{entity.Id}", entity);})
+            app.MapPost("/addresses", async ([FromBody] CreateAddressDto entity, IGenericRepository<Address> repo, IMapper mapper) => {
+                await repo.InsertAsync(mapper.Map<Address>(entity));
+                return Results.Ok();})
                 .WithTags("Creators");
 
-            app.MapPut("/addresses", async ([FromBody] Address entity, IGenericRepository<Address> repo) => {
-                await repo.UpdateAsync(entity);
+            app.MapPut("/addresses", async ([FromBody] UpdateAddressDto entity, IGenericRepository<Address> repo, IMapper mapper) => {
+                await repo.UpdateAsync(mapper.Map<Address>(entity));
                 return Results.Accepted();})
                 .WithTags("Updaters");
 

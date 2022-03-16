@@ -17,8 +17,8 @@ namespace AuthApi.Apis
                 return Results.Ok();})
                 .WithTags("Creators");
 
-            app.MapPut("/countries", async ([FromBody] Country entity, IGenericRepository<Country> repo) => {
-                await repo.UpdateAsync(entity);
+            app.MapPut("/countries", async ([FromBody] UpdateCountryDto entity, IGenericRepository<Country> repo, IMapper mapper) => {
+                await repo.UpdateAsync(mapper.Map<Country>(entity));
                 return Results.Accepted();})
                 .WithTags("Updaters");
 
