@@ -22,6 +22,12 @@ namespace AuthApi.Application.Implementations
             await _dbSet.AddAsync(entity);
             await Commit();
         }
+
+        public async Task UpdateAsync(T entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+            await Commit();
+        }
         
         public async Task DeleteAsync(T entity)
         {
