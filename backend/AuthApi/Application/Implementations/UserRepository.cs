@@ -18,9 +18,19 @@ namespace AuthApi.Application.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<string> SignIn(SignInDto dto)
+        public async Task<string> SignIn(SignInDto dto)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.Where(e => e.Email.Name == dto.Email).FirstOrDefaultAsync();
+
+            if (user == null)
+                throw new Exception("User with that email doesn't exist");
+
+            if (!Hash.VerifyHashedPassword(user.Password, dto.Password))
+                throw new Exception("Wrong password");
+
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("Jwt");
+
+            return _token.BuildToken(config["Key"], config["Issuer"], user);
         }
 
         public async Task<string> SignUp(SignUpDto dto)
