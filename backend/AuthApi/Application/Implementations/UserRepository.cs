@@ -13,9 +13,20 @@ namespace AuthApi.Application.Implementations
             _email = email;
         }
 
-        public Task<string> RestorePassword(RestorePasswordDto dto)
+        public async Task<string> RestorePassword(RestorePasswordDto dto)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.Where(e => e.Email.Name == dto.Email).FirstOrDefaultAsync();
+
+            var emailId = await _email.Verify(dto.Email, dto.Code);
+
+            if (emailId != user.EmailId)
+                throw new Exception("Pls check your verification code");
+
+            user.Password = dto.Password;
+
+            await Commit();
+
+            return BuildToken(user);
         }
 
         public async Task<string> SignIn(SignInDto dto)
@@ -28,9 +39,7 @@ namespace AuthApi.Application.Implementations
             if (!Hash.VerifyHashedPassword(user.Password, dto.Password))
                 throw new Exception("Wrong password");
 
-            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("Jwt");
-
-            return _token.BuildToken(config["Key"], config["Issuer"], user);
+            return BuildToken(user);
         }
 
         public async Task<string> SignUp(SignUpDto dto)
@@ -51,6 +60,11 @@ namespace AuthApi.Application.Implementations
             await _context.Users.AddAsync(user);
             await Commit();
 
+            return BuildToken(user);
+        }
+
+        private string BuildToken(User user)
+        {
             var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("Jwt");
 
             return _token.BuildToken(config["Key"], config["Issuer"], user);
