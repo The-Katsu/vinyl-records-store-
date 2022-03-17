@@ -24,6 +24,7 @@ new CountriesApi().Register(app);
 new CitiesApi().Register(app);
 new AddressesApi().Register(app);
 new EmailsApi().Register(app);
+new UsersApi().Register(app);
 
 app.MapGet("/", () => "Hello World!");
 

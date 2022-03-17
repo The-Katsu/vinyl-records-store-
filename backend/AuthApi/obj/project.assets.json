@@ -2071,11 +2071,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
+      "projectUniqueName": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
       "projectName": "AuthApi",
-      "projectPath": "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
+      "projectPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
       "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\obj\\",
+      "outputPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2085,6 +2085,7 @@
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

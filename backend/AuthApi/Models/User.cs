@@ -6,7 +6,7 @@ namespace AuthApi.Models
         public string LastName {get; set;}
         public Guid EmailId {get; set;}
         public string Password {get; set;}
-        public Guid AddressId {get; set;}
+        public Guid? AddressId {get; set;}
         public DateTime CreatedAt {get; set;} = DateTime.UtcNow;
         public Role Role {get; set;} = Role.Customer;
 

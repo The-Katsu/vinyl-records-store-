@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DnXZwFr28UyeZS+Jf5ZBufaT8E3vViSUoXDWrZLNLr91uLzf9TEN9fcOzPbwU7O7DyQ8Apnb+pQcqTkHEUyYoA==",
+  "dgSpecHash": "6NWdncn50cR2MBcO5UNubjtXGmtndnovGXTnkTwnTmsEYIyBmANd2uWZcj+M/83RcDhIfNm1qFH6fAbc+9qW3A==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
+  "projectFilePath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vladimir\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

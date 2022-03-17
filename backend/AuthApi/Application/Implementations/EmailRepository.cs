@@ -5,17 +5,15 @@ namespace AuthApi.Application.Implementations
     {
         private AuthDbContext _context;
 
-        public EmailRepository(AuthDbContext context)
-        {
-            _context = context;
-        }
+        public EmailRepository(AuthDbContext context) => _context = context;
 
         private async Task Commit() => await _context.SaveChangesAsync();
 
-        public async Task SendCode(string email)
+        public async Task SendCode(string email, bool newPassword)
         {
-            if(await _context.Emails.Where(e => e.Name == email && e.Verified == true).FirstOrDefaultAsync() != null)
-                throw new Exception("Email uses already");
+            if (!newPassword)
+                if(await _context.Emails.Where(e => e.Name == email && e.Verified == true).FirstOrDefaultAsync() != null)
+                    throw new Exception("Email uses already");
 
             var rnd = new Random();
             var entity = new Email{Name = email, Code = rnd.Next(1000,9999)};

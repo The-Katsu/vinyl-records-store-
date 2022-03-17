@@ -4,8 +4,8 @@ namespace AuthApi.Apis
     {
         public void Register(WebApplication app)
         {
-            app.MapPost("/sendCode", async ([FromQuery] string email, IEmailRepository repo) => {
-                await repo.SendCode(email);
+            app.MapPost("/sendCode", async ([FromQuery] string email,[FromQuery] bool restorePassword, IEmailRepository repo) => {
+                await repo.SendCode(email,restorePassword);
                 return Results.Ok();})
                 .WithTags("EmailApi");
 

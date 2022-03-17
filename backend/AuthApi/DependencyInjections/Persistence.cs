@@ -11,6 +11,7 @@ namespace AuthApi.DependencyInjections
             //Repository Injection
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<IEmailRepository, EmailRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
 
             return services;
         }
