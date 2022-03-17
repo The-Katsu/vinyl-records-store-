@@ -29,6 +29,8 @@ namespace AuthApi.DependencyInjections
                     };
                 }); 
 
+            
+
             return services;
         }
     }

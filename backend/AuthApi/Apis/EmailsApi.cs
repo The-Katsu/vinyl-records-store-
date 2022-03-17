@@ -9,9 +9,9 @@ namespace AuthApi.Apis
                 return Results.Ok();})
                 .WithTags("EmailApi");
 
-            app.MapGet("/verifyEmail", async ([FromQuery] string email, [FromQuery] int code, IEmailRepository repo) => 
-                await repo.Verify(email, code))
-                .WithTags("EmailApi");
+            // app.MapGet("/verifyEmail", async ([FromQuery] string email, [FromQuery] int code, IEmailRepository repo) => 
+            //     await repo.Verify(email, code))
+            //     .WithTags("EmailApi");
         }
     }   
 }

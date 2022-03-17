@@ -20,6 +20,8 @@ if (app.Environment.IsDevelopment())
     db.Database.EnsureCreated();
 }
 
+app.UseCustomExceptionHandler();
+
 new CountriesApi().Register(app);
 new CitiesApi().Register(app);
 new AddressesApi().Register(app);

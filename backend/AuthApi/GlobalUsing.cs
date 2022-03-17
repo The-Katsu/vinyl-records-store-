@@ -6,6 +6,8 @@ global using System.Security.Claims;
 global using System.Text;
 global using System.Security.Cryptography;
 global using System.Text.RegularExpressions;
+global using System.Net;
+global using System.Text.Json;
 
 global using AuthApi.Models;
 global using AuthApi.Data;
@@ -18,6 +20,7 @@ global using AuthApi.Models.DTO;
 global using AuthApi.Models.VM;
 global using AuthApi.Application.Common.JwtToken;
 global using AuthApi.Application.Common.SaltHash;
+global using AuthApi.Middleware;
 
 global using Microsoft.EntityFrameworkCore;
 global using System.Reflection;
