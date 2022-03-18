@@ -91,7 +91,12 @@ namespace AuthApi.Application.Implementations
             if (!Hash.VerifyHashedPassword(user.Password, password))
                 throw new Exception("Wrong password");
 
+            var email = await _context.Emails.FindAsync(user.EmailId);
+
+            email.Verified = false;
+
             _context.Users.Remove(user);
+
             await Commit();
         }
     }

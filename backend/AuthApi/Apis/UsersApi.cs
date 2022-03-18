@@ -10,9 +10,8 @@ namespace AuthApi.Apis
             app.MapPost("/signIn", [AllowAnonymous] async (SignInDto dto, IUserRepository repo) =>
                 await repo.SignIn(dto));
 
-            // app.MapDelete("", [Authorize] async (IUserRepository repo) => {
-            //     var userId = Guid.Parse(new HttpContext().User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            //     var userId = new HttpContent().});
+            app.MapDelete("", [Authorize] async ([FromQuery] string password, HttpContext context, IUserRepository repo) =>
+                await repo.DeleteUser(Guid.Parse(context.User.FindFirst(ClaimTypes.NameIdentifier).Value), password));
         }
     }
 }

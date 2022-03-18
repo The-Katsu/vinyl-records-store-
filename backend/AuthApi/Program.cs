@@ -52,8 +52,6 @@ new AddressesApi().Register(app);
 new EmailsApi().Register(app);
 new UsersApi().Register(app);
 
-app.MapGet("/", () => "Hello World!");
-
 app.UseHttpsRedirection();
 
 app.Run();
