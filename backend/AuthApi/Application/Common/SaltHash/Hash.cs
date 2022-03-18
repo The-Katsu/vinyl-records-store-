@@ -25,13 +25,9 @@ namespace AuthApi.Application.Common.SaltHash
         {
             byte[] buffer4;
             if (hashedPassword == null)
-            {
                 return false;
-            }
             if (password == null)
-            {
                 throw new ArgumentNullException("password");
-            }
             byte[] src = Convert.FromBase64String(hashedPassword);
             if ((src.Length != 0x31) || (src[0] != 0))
             {

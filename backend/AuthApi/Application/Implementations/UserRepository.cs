@@ -13,6 +13,24 @@ namespace AuthApi.Application.Implementations
             _email = email;
         }
 
+        private string BuildToken(User user)
+        {
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("Jwt");
+
+            return _token.BuildToken(config["Key"], config["Issuer"], user);
+        }
+
+        private async Task Commit() => await _context.SaveChangesAsync();
+
+        private bool PasswordValidation(string password)
+        {
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinimum8Chars = new Regex(@".{8,}");
+
+            return hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password);
+        }
+
         public async Task<string> RestorePassword(RestorePasswordDto dto)
         {
             var user = await _context.Users.Where(e => e.Email.Name == dto.Email).FirstOrDefaultAsync();
@@ -63,22 +81,18 @@ namespace AuthApi.Application.Implementations
             return BuildToken(user);
         }
 
-        private string BuildToken(User user)
+        public async Task DeleteUser(Guid id, string password)
         {
-            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("Jwt");
+            var user = await _context.Users.FindAsync(id);
 
-            return _token.BuildToken(config["Key"], config["Issuer"], user);
-        }
+            if (user == null)
+                throw new ArgumentNullException("User not found");
 
-        private async Task Commit() => await _context.SaveChangesAsync();
+            if (!Hash.VerifyHashedPassword(user.Password, password))
+                throw new Exception("Wrong password");
 
-        private bool PasswordValidation(string password)
-        {
-            var hasNumber = new Regex(@"[0-9]+");
-            var hasUpperChar = new Regex(@"[A-Z]+");
-            var hasMinimum8Chars = new Regex(@".{8,}");
-
-            return hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password);
+            _context.Users.Remove(user);
+            await Commit();
         }
     }
 }

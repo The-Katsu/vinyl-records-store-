@@ -8,6 +8,8 @@ global using System.Security.Cryptography;
 global using System.Text.RegularExpressions;
 global using System.Net;
 global using System.Text.Json;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.OpenApi.Models;
 
 global using AuthApi.Models;
 global using AuthApi.Data;

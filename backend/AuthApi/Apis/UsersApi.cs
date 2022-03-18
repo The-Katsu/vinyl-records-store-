@@ -4,11 +4,15 @@ namespace AuthApi.Apis
     {
         public void Register(WebApplication app)
         {
-            app.MapPost("/signUp", async (SignUpDto dto, IUserRepository repo) => 
+            app.MapPost("/signUp", [AllowAnonymous] async (SignUpDto dto, IUserRepository repo) => 
                 await repo.SignUp(dto));
             
-            app.MapPost("/signIn", async (SignInDto dto, IUserRepository repo) =>
+            app.MapPost("/signIn", [AllowAnonymous] async (SignInDto dto, IUserRepository repo) =>
                 await repo.SignIn(dto));
+
+            // app.MapDelete("", [Authorize] async (IUserRepository repo) => {
+            //     var userId = Guid.Parse(new HttpContext().User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            //     var userId = new HttpContent().});
         }
     }
 }
