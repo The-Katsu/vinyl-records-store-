@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
+builder.Services.AddAutoMapper(config => { config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));});
+
 builder.Services.AddApplication();
 builder.Services.AddPersistence(configuration);
 

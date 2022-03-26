@@ -1,5 +1,4 @@
 global using System;
-global using System.ComponentModel.DataAnnotations;
 global using Microsoft.AspNetCore.Mvc;
 global using System.Net.Mail;
 global using System.Security.Claims;
@@ -10,19 +9,22 @@ global using System.Net;
 global using System.Text.Json;
 global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.OpenApi.Models;
+global using System.ComponentModel.DataAnnotations;
 
-global using AuthApi.Models;
+global using Domain.Models;
 global using AuthApi.Data;
 global using AuthApi.DependencyInjections;
 global using AuthApi.Application.Interfaces;
 global using AuthApi.Application.Implementations;
 global using AuthApi.Apis;
 global using AuthApi.Application.Common.Mapping;
-global using AuthApi.Models.DTO;
-global using AuthApi.Models.VM;
+global using Domain.Models.DTO;
+global using Domain.Models.VM;
 global using AuthApi.Application.Common.JwtToken;
 global using AuthApi.Application.Common.SaltHash;
 global using AuthApi.Middleware;
+global using AuthApi.DependencyInjections;
+global using Domain.Models;
 
 global using Microsoft.EntityFrameworkCore;
 global using System.Reflection;

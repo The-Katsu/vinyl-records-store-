@@ -56,7 +56,14 @@ C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Microsoft.Ope
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\AuthApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Domain.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Domain.pdb
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Application.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Application.pdb
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\obj\Debug\net6.0\AuthApi.MvcApplicationPartsAssemblyInfo.cs

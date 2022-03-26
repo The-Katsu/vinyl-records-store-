@@ -1,4 +1,4 @@
-namespace AuthApi.Models.DTO
+namespace Domain.Models.DTO
 {
     public class CreateCityDto : IMapWith<City>
     {

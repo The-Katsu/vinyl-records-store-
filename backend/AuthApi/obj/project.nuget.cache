@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6NWdncn50cR2MBcO5UNubjtXGmtndnovGXTnkTwnTmsEYIyBmANd2uWZcj+M/83RcDhIfNm1qFH6fAbc+9qW3A==",
+  "dgSpecHash": "NC5+WA36l//t4Nu7bGpmfyMdfNnsSbogG5igngXanT6gm+nYnrVV9DLo7lPlwp5DN+p1sIfcvVIk86xcfGr9zA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\AuthApi\\AuthApi.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
+    "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",

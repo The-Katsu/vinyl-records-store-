@@ -2,7 +2,7 @@ namespace AuthApi.Apis
 {
     public class CountriesApi
     {
-        public void Register(WebApplication app)
+        public async void Register(WebApplication app)
         {
             app.MapGet("/countries", async (IGenericRepository<Country> repo, IMapper mapper) => 
                 mapper.Map<List<CountryVm>>(await repo.GetAllAsync()))

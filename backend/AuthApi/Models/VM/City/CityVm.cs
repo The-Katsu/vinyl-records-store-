@@ -1,4 +1,4 @@
-namespace AuthApi.Models.VM
+namespace Domain.Models.VM
 {
     public class CityVm : IMapWith<City>
     {
