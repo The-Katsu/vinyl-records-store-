@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vladimir\\Documents\\bdsem\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vladimir\\Documents\\bdsem\\Domain\\Domain.csproj": {
+    "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vladimir\\Documents\\bdsem\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",

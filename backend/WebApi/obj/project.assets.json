@@ -213,11 +213,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vladimir\\Documents\\bdsem\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\WebApi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
