@@ -8,6 +8,8 @@ namespace Domain.Models.DTO
         public string District {get; set;}
         public int Postcode {get; set;}
         public string Phone {get; set;}
+        [JsonIgnore]
+        public Guid UserId {get; set;}
         public void Mapping(Profile profile) =>
             profile.CreateMap<CreateAddressDto, Address>();
     }

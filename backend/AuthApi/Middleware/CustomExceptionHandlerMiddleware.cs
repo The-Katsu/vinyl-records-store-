@@ -2,10 +2,14 @@ namespace AuthApi.Middleware
 {
     public class CustomExceptionHandlerMiddleware
     {
+        private readonly ILogger<CustomExceptionHandlerMiddleware> _logger;
         private readonly RequestDelegate _next;
 
-        public CustomExceptionHandlerMiddleware(RequestDelegate next) 
-            => _next = next;
+        public CustomExceptionHandlerMiddleware(RequestDelegate next, ILogger<CustomExceptionHandlerMiddleware> logger) 
+        {
+            _next = next;
+            _logger = logger;
+        }
         
         public async Task Invoke(HttpContext context)
         {
@@ -35,6 +39,8 @@ namespace AuthApi.Middleware
 
             if (result == string.Empty)
                 result = JsonSerializer.Serialize(new {error = ex.Message});
+
+            _logger.LogError(ex.Message);
 
             return context.Response.WriteAsync(result);
         }
