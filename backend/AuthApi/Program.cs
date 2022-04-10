@@ -1,9 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSerilog((context, config) =>
-{
-    config.ReadFrom.Configuration(context.Configuration);
-});
+builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<UsersApi>();
@@ -63,7 +60,6 @@ new CountriesApi().Register(app);
 new CitiesApi().Register(app);
 new AddressesApi().Register(app);
 new EmailsApi().Register(app);
-//new UsersApi().Register(app);
 
 app.UseHttpsRedirection();
 

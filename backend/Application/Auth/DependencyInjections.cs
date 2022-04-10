@@ -7,6 +7,9 @@ namespace AuthApi.DependencyInjections
             //Add token service
             services.AddSingleton<ITokenService>(new TokenService());
 
+            //Add identity service
+            services.AddTransient<IIdentityDetection, IdentityDetection>();
+
             //Repository Injection
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<IEmailRepository, EmailRepository>();

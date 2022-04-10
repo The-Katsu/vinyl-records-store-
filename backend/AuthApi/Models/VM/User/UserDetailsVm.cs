@@ -1,5 +1,6 @@
 namespace Domain.Models.VM
 {
+    
     public class UserDetailsVm : IMapWith<User>
     {
         public string FirstName {get; set;}

@@ -7,6 +7,7 @@ namespace AuthApi.Application.Interfaces
         public Task<string> RestorePassword(RestorePassword dto);
         public Task DeleteUser(Guid id, string password);
         public Task<User> GetUserAsync(Guid id);
+        public Task<User> GetUserDetailsAsync(Guid id);
         public Task<List<User>> GetAllUsersAsync();
     }
 }

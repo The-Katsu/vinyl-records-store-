@@ -8,7 +8,9 @@ namespace Domain.Models
         public string District {get; set;}
         public int Postcode {get; set;}
         public string Phone {get; set;}
+        public Guid UserId {get; set;}
 
         public virtual City? City {get; set;}
+        public virtual User? User {get; set;}
     }
 }

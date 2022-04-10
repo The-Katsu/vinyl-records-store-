@@ -20,3 +20,5 @@ global using System.IdentityModel.Tokens.Jwt;
 global using System.Security.Claims;
 global using System.ComponentModel.DataAnnotations;
 global using System.Security.Cryptography;
+global using Microsoft.AspNetCore.Http;
+global using AuthApi.Application.Common.IdentityDetection;

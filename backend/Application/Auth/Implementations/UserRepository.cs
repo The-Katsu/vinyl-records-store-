@@ -6,7 +6,7 @@ namespace AuthApi.Application.Implementations
         private IEmailRepository _email;
         private readonly ITokenService _token;
 
-        public UserRepository(AuthDbContext context, ITokenService token, IEmailRepository email) 
+        public UserRepository(AuthDbContext context, ITokenService token, IEmailRepository email)
         {
             _context = context;
             _token = token;
@@ -38,7 +38,7 @@ namespace AuthApi.Application.Implementations
             var emailId = await _email.Verify(dto.Email, dto.Code);
 
             if (emailId != user.EmailId)
-                throw new Exception("Pls check your verification code");
+                throw new Exception($"AuthApi response: Verifycation not accepted {dto.Email}");
 
             user.Password = dto.Password;
 
@@ -52,10 +52,10 @@ namespace AuthApi.Application.Implementations
             var user = await _context.Users.Where(e => e.Email.Name == dto.Email).FirstOrDefaultAsync();
 
             if (user == null)
-                throw new Exception("User with that email doesn't exist");
+                throw new Exception($"AuthApi response: Wrong Email - {dto.Email}");
 
             if (!Hash.VerifyHashedPassword(user.Password, dto.Password))
-                throw new Exception("Wrong password");
+                throw new Exception($"AuthApi response: Wrong password - {dto.Email}");
 
             return BuildToken(user);
         }
@@ -65,7 +65,7 @@ namespace AuthApi.Application.Implementations
             var emailId = await _email.Verify(dto.Email, dto.Code);
 
             if(_context.Users.Where(e => e.Email.Name == _context.Emails.Where(e => e.Id == emailId).Select(e => e.Name).Single()).Count() != 0 )
-                throw new Exception("User with that email already exists");
+                throw new Exception($"AuthApi response: Email already using - {dto.Email}");
 
             var user = new User
             {
@@ -86,10 +86,10 @@ namespace AuthApi.Application.Implementations
             var user = await _context.Users.FindAsync(id);
 
             if (user == null)
-                throw new ArgumentNullException("User not found");
+                throw new Exception($"AuthApi response: User not found for {id}");
 
             if (!Hash.VerifyHashedPassword(user.Password, password))
-                throw new Exception("Wrong password");
+                throw new Exception($"AuthApi response: Wrong password for {id}");
 
             var email = await _context.Emails.FindAsync(user.EmailId);
 
@@ -101,7 +101,7 @@ namespace AuthApi.Application.Implementations
         }
 
         public async Task<User> GetUserAsync(Guid id) => await _context.Users.Include(e => e.Email).Where(e => e.Id == id).FirstOrDefaultAsync();
-
+        public async Task<User> GetUserDetailsAsync(Guid id) => await _context.Users.Include(e => e.Email).Include(e => e.Address).ThenInclude(e => e.City).Where(e => e.Id == id).FirstOrDefaultAsync();
         public async Task<List<User>> GetAllUsersAsync()=> await _context.Users.Include(e => e.Email).ToListAsync();
     }
 }
