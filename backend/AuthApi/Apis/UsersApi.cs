@@ -2,15 +2,13 @@ namespace AuthApi.Apis
 {
     public class UsersApi
     {
-        private ILogger<UsersApi> _logger;
-        private IHttpContextAccessor _context;
-        private IMapper _mapper;
-        private IIdentityDetection _identity;
-        private IUserRepository _repository;
+        private readonly ILogger<UsersApi> _logger;
+        private readonly IMapper _mapper;
+        private readonly IIdentityDetection _identity;
+        private readonly IUserRepository _repository;
 
-        public UsersApi(ILogger<UsersApi> logger, IHttpContextAccessor context, IMapper mapper, IIdentityDetection identity, IUserRepository repository)
+        public UsersApi(ILogger<UsersApi> logger, IMapper mapper, IIdentityDetection identity, IUserRepository repository)
         {
-            _context = context;
             _logger = logger;
             _mapper = mapper;
             _identity = identity;

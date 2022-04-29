@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZhbWN/cRWaFtwHzt2wMiMCqHze67BrWha8cbvJrOTChHMB2azfseXHoFIQ9BjNFGn65iagfL9RXKOlVQjumx0A==",
+  "dgSpecHash": "VJKRsdxZjs0mM0BvyrDn39i/PpQO/KzFTIQiThQueUIFpmnlQYi9d7Vi/wWeZ8WrZVJgKn4Sdd0G9010WJSbJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vladimir\\Documents\\bdsem\\backend\\Application\\Application.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,8 @@
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Vladimir\\.nuget\\packages\\npgsql\\6.0.3\\npgsql.6.0.3.nupkg.sha512",
+    "C:\\Users\\Vladimir\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.3\\npgsql.entityframeworkcore.postgresql.6.0.3.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\Vladimir\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
