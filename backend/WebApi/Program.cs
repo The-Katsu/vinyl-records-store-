@@ -1,7 +1,10 @@
 using Infrastructure.Shop;
 using Infrastructure.Shop.Data;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
 
 ConfigurationManager configuration = builder.Configuration;
 

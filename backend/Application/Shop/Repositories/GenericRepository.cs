@@ -1,8 +1,9 @@
 ﻿using Infrastructure.Shop.Data;
+using Application.Shop.Interfaces;
 
 namespace Application.Shop.Repositories;
 
-public class GenericRepository<T> : Application.Shop.Interfaces.IGenericRepository<T> where T : class
+public class GenericRepository<T> : Interfaces.IGenericRepository<T> where T : class
 {
     protected readonly ShopDbContext _context;
     protected DbSet<T> _dbSet;
