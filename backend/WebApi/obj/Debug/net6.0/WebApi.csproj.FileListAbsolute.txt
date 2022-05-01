@@ -84,3 +84,9 @@ C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\runtimes\win\n
 C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\Application.dll
+C:\Users\Vladimir\Documents\bdsem\backend\WebApi\bin\Debug\net6.0\Application.pdb
