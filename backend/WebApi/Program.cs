@@ -1,3 +1,4 @@
+using Application.Shop;
 using Infrastructure.Shop;
 using Infrastructure.Shop.Data;
 using Serilog;
@@ -10,6 +11,7 @@ ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddPersistence(configuration);
+builder.Services.AddApplication();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
