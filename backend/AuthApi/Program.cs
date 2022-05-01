@@ -51,7 +51,7 @@ if (app.Environment.IsDevelopment())
     //db.Database.EnsureDeleted(); //Delete if changes
     db.Database.EnsureCreated();
     var service = scope.ServiceProvider.GetService<UsersApi>();
-    service.Register(app);
+    service?.Register(app);
 }
 
 app.UseCustomExceptionHandler();

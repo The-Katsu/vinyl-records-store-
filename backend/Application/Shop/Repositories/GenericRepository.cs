@@ -1,12 +1,13 @@
 ﻿using Infrastructure.Shop.Data;
 using Application.Shop.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Shop.Repositories;
 
 public class GenericRepository<T> : Interfaces.IGenericRepository<T> where T : class
 {
-    protected readonly ShopDbContext _context;
-    protected DbSet<T> _dbSet;
+    private readonly ShopDbContext _context;
+    private readonly DbSet<T> _dbSet;
 
     public GenericRepository(ShopDbContext context)
     {
