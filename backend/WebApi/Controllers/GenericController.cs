@@ -21,12 +21,23 @@ public class GenericController<T> : Controller where T : class
         : Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
     [HttpGet]
-    public virtual async Task<IEnumerable<T>> GetAllAsync() 
-        => await _repository.GetAllAsync();
+    public virtual async Task<IEnumerable<T>> GetAllAsync()
+    {
+        var entities = await _repository.GetAllAsync();   
+        _logger.LogInformation("ShopApi: GetAll {Name} from {RemoteIpAddress}",
+            entities.GetType().Name, HttpContext.Connection.RemoteIpAddress);
+        return entities;
+    }
+        
 
     [HttpGet("{id:guid}")]
-    public virtual async Task<T> GetByIdAsync(Guid id) 
-        => await _repository.GetByIdAsync(id);
+    public virtual async Task<T> GetByIdAsync(Guid id)
+    {
+        var entity = await _repository.GetByIdAsync(id);
+        _logger.LogInformation("ShopApi: GetById {Name} with {Id} from {RemoteIpAddress}",
+            entity.GetType().Name, id.ToString(), HttpContext.Connection.RemoteIpAddress);
+        return entity;
+    }
 
     [HttpPost]
     public virtual async Task PostAsync([FromBody] T entity)
@@ -35,7 +46,13 @@ public class GenericController<T> : Controller where T : class
             entity.GetType().Name, HttpContext.Connection.RemoteIpAddress);
         await _repository.AddAsync(entity);
     }
+
     [HttpDelete("{id:guid}")]
     public virtual async Task DeleteAsync(Guid id)
-        => await _repository.DeleteAsync(id);
+    {
+        var entity = await _repository.GetByIdAsync(id);
+        _logger.LogInformation("ShopApi: Delete {Name} from {RemoteIpAddress}",
+            entity.GetType().Name, HttpContext.Connection.RemoteIpAddress);    
+        await _repository.DeleteAsync(id);
+    }
 }
