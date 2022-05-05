@@ -2,4 +2,7 @@
 
 namespace Application.Shop.Interfaces;
 
-public interface IBillRepository : IGenericRepository<Bill> { }
+public interface IBillRepository : IGenericRepository<Bill>
+{
+    public Task AddAsync(Guid userId, Guid[] records);
+}

@@ -42,9 +42,9 @@ public class GenericController<T> : Controller where T : class
     [HttpPost]
     public virtual async Task PostAsync([FromBody] T entity)
     {
+        await _repository.AddAsync(entity);
         _logger.LogInformation("ShopApi: Post {Name} from {RemoteIpAddress}", 
             entity.GetType().Name, HttpContext.Connection.RemoteIpAddress);
-        await _repository.AddAsync(entity);
     }
 
     [HttpDelete("{id:guid}")]

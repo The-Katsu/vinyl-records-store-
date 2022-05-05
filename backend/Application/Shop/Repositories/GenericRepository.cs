@@ -1,6 +1,4 @@
 ﻿using Infrastructure.Shop.Data;
-using Application.Shop.Interfaces;
-using Microsoft.Extensions.Logging;
 
 namespace Application.Shop.Repositories;
 
@@ -18,10 +16,10 @@ public class GenericRepository<T> : Interfaces.IGenericRepository<T> where T : c
     public virtual async Task<IEnumerable<T>> GetAllAsync()
         => await _dbSet.ToListAsync();
 
-    public async Task<T> GetByIdAsync(Guid id)
+    public virtual async Task<T> GetByIdAsync(Guid id)
         => await _dbSet.FindAsync(id);
 
-    public async Task AddAsync(T entity)
+    public virtual async Task AddAsync(T entity)
     {
         await _dbSet.AddAsync(entity);
         await Commit();
@@ -34,6 +32,6 @@ public class GenericRepository<T> : Interfaces.IGenericRepository<T> where T : c
         await Commit();
     }
 
-    private async Task Commit() 
+    public async Task Commit() 
         => await _context.SaveChangesAsync();
 }

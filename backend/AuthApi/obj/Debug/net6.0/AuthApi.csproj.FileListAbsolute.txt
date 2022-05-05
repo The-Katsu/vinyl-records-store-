@@ -88,3 +88,5 @@ C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\runtimes\linu
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
 C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Npgsql.dll
+C:\Users\Vladimir\Documents\bdsem\backend\AuthApi\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

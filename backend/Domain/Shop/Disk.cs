@@ -8,6 +8,7 @@ public class Disk : BaseEntity
     public string About { get; set; }
     public decimal Price { get; set; }
     public int Upc { get; set; }
+    public string Img { get; set; }
     public DateTime Release { get; set; }
     public Guid ArtistId { get; set; }
     public Guid FormatId { get; set; }
