@@ -1,9 +1,57 @@
-﻿using System.Security.Claims;
-using Application.Shop.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+# Паттерны проектирования для работы с БД  
+## Паттерн репозиториев с обобщениями  
+Интерфейс:  
+```cs
+public interface IGenericRepository<T> where T : class
+{
+    public Task<T> GetAsync(Guid id);
+    public Task<IEnumerable<T>> GetAllAsync();
+    public Task InsertAsync(T entity);
+    public Task UpdateAsync(T entity);
+    public Task DeleteAsync(T entity);
+}
+```
+Реализация:  
+```cs
+public class GenericRepository<T> : IGenericRepository<T> 
+    where T : class
+{
+    private AuthDbContext _context;
+    private DbSet<T> _dbSet;
 
-namespace WebApi.Controllers;
+    public GenericRepository(AuthDbContext context)
+    {
+        _context = context;
+        _dbSet = context.Set<T>();
+    }
 
+    private async Task Commit() => await _context.SaveChangesAsync();
+
+    public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
+
+    public async Task<T> GetAsync(Guid id) => await _dbSet.FindAsync(id);
+
+    public async Task InsertAsync(T entity)
+    {
+        await _dbSet.AddAsync(entity);
+        await Commit();
+    }
+
+    public async Task UpdateAsync(T entity)
+    {
+        _context.Entry(entity).State = EntityState.Modified;
+        await Commit();
+    }
+    
+    public async Task DeleteAsync(T entity)
+    {
+        _dbSet.Remove(entity);
+        await Commit();
+    }
+}
+```  
+Контроллер:  
+```cs  
 [ApiController]
 [Route("api/[controller]")]
 public class GenericController<T> : ControllerBase where T : class
@@ -57,3 +105,4 @@ public class GenericController<T> : ControllerBase where T : class
         await _repository.DeleteAsync(id);
     }
 }
+```
