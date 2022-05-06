@@ -9,11 +9,13 @@ public class BasketController : GenericController<Basket>
 {
     private readonly IGenericRepository<Basket> _repository;
     private readonly ILogger<GenericController<Basket>> _logger;
+    private readonly IBasketRepository _basketRepository;
     
-    public BasketController(IGenericRepository<Basket> repository, ILogger<GenericController<Basket>> logger) : base(repository, logger)
+    public BasketController(IGenericRepository<Basket> repository, ILogger<GenericController<Basket>> logger, IBasketRepository basketRepository) : base(repository, logger)
     {
         _repository = repository;
         _logger = logger;
+        _basketRepository = basketRepository;
     }
 
     [NonAction]
@@ -22,10 +24,17 @@ public class BasketController : GenericController<Basket>
         return base.GetAllAsync();
     }
 
-    [Authorize]
+    [NonAction]
     public override Task<Basket> GetByIdAsync(Guid id)
     {
         return base.GetByIdAsync(id);
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<Basket> GetByIdAsync()
+    {
+        return await _basketRepository.GetAsync(UserId);
     }
 
     [NonAction]
@@ -35,6 +44,13 @@ public class BasketController : GenericController<Basket>
     }
 
     [Authorize]
+    [HttpPost]
+    public async Task PostAsync(Guid recordId)
+    {
+        await _basketRepository.AddToBasket(recordId, UserId);
+    }
+    
+    [NonAction]
     public override Task PostAsync(Basket basket)
     {
         return base.PostAsync(basket);

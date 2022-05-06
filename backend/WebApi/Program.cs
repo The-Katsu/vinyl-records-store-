@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
 
-ConfigurationManager configuration = builder.Configuration;
+var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddPersistence(configuration);
@@ -43,9 +43,6 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -58,10 +55,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
+app.UseHttpsRedirection();
+
 app.MapControllers();
+
+app.UseEndpoints(endpoints => endpoints.MapControllers());
 
 app.Run();

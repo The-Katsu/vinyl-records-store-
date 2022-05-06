@@ -12,6 +12,20 @@ public class BasketRepository : GenericRepository<Basket>, IBasketRepository
         _context = context;
     }
 
+
+    public async Task<Basket> GetAsync(Guid userId)
+    {
+        if (!await _context.Baskets.AnyAsync(x => x.UserId == userId))
+        {
+            await _context.Baskets.AddAsync(new Basket {UserId = userId});
+            await Commit();
+        }
+        
+        return await _context.Baskets
+            .Include(x => x.Disks)
+            .FirstAsync(x => x.UserId == userId);
+    }
+
     public async Task AddToBasket(Guid recordId, Guid userId)
     {
         if (!await _context.Baskets.AnyAsync(x => x.UserId == userId))
@@ -22,5 +36,9 @@ public class BasketRepository : GenericRepository<Basket>, IBasketRepository
 
         basket.Disks.Add(await _context.Disks
             .FirstAsync(x => x.Id == recordId));
+
+        await Commit();
     }
+
+    private async Task Commit() => await _context.SaveChangesAsync();
 }

@@ -40,7 +40,7 @@ namespace AuthApi.Middleware
             if (result == string.Empty)
                 result = JsonSerializer.Serialize(new {error = ex.Message});
 
-            _logger.LogError(ex.Message);
+            _logger.LogError("{Exception}", ex.Message);
 
             return context.Response.WriteAsync(result);
         }

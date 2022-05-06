@@ -11,6 +11,8 @@ public static class DependencyInjections
         services.AddScoped(typeof(Interfaces.IGenericRepository<>), typeof(Repositories.GenericRepository<>));
         services.AddScoped<IBillRepository, BillRepository>();
         services.AddScoped<IBasketRepository, BasketRepository>();
+        services.AddScoped<IDiskRepository, DiskRepository>();
+        services.AddScoped<IBasketRepository, BasketRepository>();
         
         services.AddAuthorization();
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

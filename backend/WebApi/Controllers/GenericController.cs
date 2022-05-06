@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
+[ApiController]
 [Route("api/[controller]")]
-public class GenericController<T> : Controller where T : class
+public class GenericController<T> : ControllerBase where T : class
 {
     private readonly IGenericRepository<T> _repository;
     private readonly ILogger<GenericController<T>> _logger;
@@ -25,7 +26,7 @@ public class GenericController<T> : Controller where T : class
     {
         var entities = await _repository.GetAllAsync();   
         _logger.LogInformation("ShopApi: GetAll {Name} from {RemoteIpAddress}",
-            entities.GetType().Name, HttpContext.Connection.RemoteIpAddress);
+            typeof(T).Name, HttpContext.Connection.RemoteIpAddress);
         return entities;
     }
         
