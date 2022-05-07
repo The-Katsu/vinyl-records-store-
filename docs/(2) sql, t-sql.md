@@ -28,6 +28,8 @@ var connectionString = configuration["DbConnection"];
 services.AddDbContext<AuthDbContext>(options => 
     {options.UseSqlServer(connectionString);});
 ```  
+### База данных авторизации  
+![img.png](https://sun9-73.userapi.com/s/v1/ig2/0tkf2nrLp3IlQ2sWxe2dNFbYZRrplWD8ODl-2kmDdSSD8wtrPaxP2h8avC0OHhlkT3QIKokX1xMyDqr0bqztSJD3.jpg?size=546x873&quality=96&type=album)
 Business API:  
 ```cs
 public class ShopDbContext : DbContext
@@ -69,3 +71,5 @@ var connectionString = configuration["DbConnection"];
 services.AddDbContext<ShopDbContext>(options => 
     {options.UseNpgsql(connectionString);});
 ```
+### База данных магазина  
+![img.png](https://sun9-14.userapi.com/s/v1/ig2/rAZf12zDNoYWe9WTFctOBklnIQAZQU1eaSwGQmnLoaV1jvs-HDF3XR1SLvxrpya7fKsG7aB7F5Oq5ZNZv0k14QPv.jpg?size=1075x776&quality=96&type=album)
