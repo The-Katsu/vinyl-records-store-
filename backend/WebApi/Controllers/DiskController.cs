@@ -17,7 +17,7 @@ public class DiskController : GenericController<Disk>
     public async Task<ActionResult<Disk>> GetById(Guid id)
     {
         var record = await _recordRepository.GetByIdAsync(id);
-        return Ok(record);
+        return record;
     }
 
     [Authorize(Roles = "Admin, Moderator")]

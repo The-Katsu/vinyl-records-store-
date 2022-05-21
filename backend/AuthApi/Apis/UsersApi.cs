@@ -1,3 +1,8 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Principal;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+
 namespace AuthApi.Apis
 {
     public class UsersApi
@@ -13,6 +18,29 @@ namespace AuthApi.Apis
             _mapper = mapper;
             _identity = identity;
             _repository = repository;
+        }
+        
+        private static bool ValidateToken(string authToken)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var validationParameters = GetValidationParameters();
+
+            SecurityToken validatedToken;
+            IPrincipal principal = tokenHandler.ValidateToken(authToken, validationParameters, out validatedToken);
+            return true;
+        }
+
+        private static TokenValidationParameters GetValidationParameters()
+        {
+            return new TokenValidationParameters()
+            {
+                ValidateLifetime = false, // Because there is no expiration in the generated token
+                ValidateAudience = false, // Because there is no audiance in the generated token
+                ValidateIssuer = false,   // Because there is no issuer in the generated token
+                ValidIssuer = "BD",
+                ValidAudience = "BD",
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("BDCourseWork123123123123123123123")) // The same key as the one that generate the token
+            };
         }
 
         public async void Register(WebApplication app)
@@ -59,6 +87,14 @@ namespace AuthApi.Apis
                 var id = _identity.GetUserId();
                 _logger.LogInformation($"AuthApi Request: GetUser, {@id} from {@_identity.GetIp()}");
                 var users = _mapper.Map<List<UserVm>>(await _repository.GetAllUsersAsync());
+            });
+
+            app.MapGet("/auth", [Authorize] async () =>
+            {
+                var token = new HttpContextAccessor().HttpContext!.Request.Headers.Authorization.ToString()
+                    .Replace("Bearer ", "");
+                if (ValidateToken(token)) return token;
+                throw new Exception("oops wrong token");
             });
         }
     }

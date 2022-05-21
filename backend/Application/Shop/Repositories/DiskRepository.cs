@@ -14,8 +14,5 @@ public class DiskRepository : GenericRepository<Disk>, IDiskRepository
 
     public override async Task<Disk> GetByIdAsync(Guid id)
         => await _context.Disks
-            .Include(x => x.Artist)
-            .Include(x => x.Format)
-            .Include(x => x.Genre)
             .FirstAsync(x => x.Id == id);
 }

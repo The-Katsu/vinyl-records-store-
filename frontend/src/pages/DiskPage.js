@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
+import {useParams} from "react-router-dom/cjs/react-router-dom";
+import {getArtist, getDisk} from "../http/deviceAPI";
 
 const DiskPage = () => {
-    const disk = {id: 1, name: 'Bad', price: 5000, date: '1987-08-31',img: 'https://upload.wikimedia.org/wikipedia/ru/d/d2/Michael_Jackson_%E2%80%94_Bad_25_album_cover.jpg'}
+    const [disk, setDisk] = useState('')
+    const [artist, setArtist] = useState('')
+    const {id} = useParams()
+    useEffect(() => {
+        getDisk(id).then(data => setDisk(data))
+    }, [])
 
     return (
         <Container className={'mt-3'}>
@@ -15,6 +22,9 @@ const DiskPage = () => {
                         <h2>
                             {disk.name}
                         </h2>
+                        <h4>
+                            {disk.about}
+                        </h4>
                         <div className={'d-flex align-items-center justify-content-center'}>
                             {disk.date}
                         </div>

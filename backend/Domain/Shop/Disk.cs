@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Newtonsoft.Json;
 
 namespace Domain.Shop;
 
@@ -14,10 +15,15 @@ public class Disk : BaseEntity
     public Guid FormatId { get; set; }
     public Guid GenreId { get; set; }
     
+    [JsonIgnore]
     public Format? Format { get; set; }
+    [JsonIgnore]
     public Artist? Artist { get; set; }
+    [JsonIgnore]
     public Genre? Genre { get; set; }
     
-    public ICollection<Bill> Bills { get; set; }
-    public ICollection<Basket> Baskets { get; set; }
+    [JsonIgnore]
+    public ICollection<Bill?>? Bills { get; set; }
+    [JsonIgnore]
+    public ICollection<Basket?>? Baskets { get; set; }
 }

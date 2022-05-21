@@ -31,7 +31,7 @@ const Admin = () => {
                 className={'mt-2'}
                 onClick={() => setDiskVisible(true)}
             >
-                Добавить устройство
+                Добавить пластинку
             </Button>
             <CreateGenre show={genreVisible} onHide={() => setGenreVisible(false)}/>
             <CreateArtist show={artistVisible} onHide={() => setArtistVisible(false)}/>
