@@ -17,13 +17,13 @@ public class BillController : GenericController<Bill>
         _billRepository = billRepository;
     }
 
-    [Authorize]
+    [NonAction]
     public override Task<IEnumerable<Bill>> GetAllAsync()
     {
         return base.GetAllAsync();
     }
 
-    [Authorize]
+    [NonAction]
     public override Task<Bill> GetByIdAsync(Guid id)
     {
         return base.GetByIdAsync(id);
@@ -36,10 +36,17 @@ public class BillController : GenericController<Bill>
     }
 
     [Authorize]
-    [HttpPost]
-    public async Task PostAsync([FromBody] Guid[] recordIds)
+    [HttpGet]
+    public async Task<IEnumerable<Bill>> GetAsync()
     {
-        _billRepository.AddAsync(UserId, recordIds);
+        return await _billRepository.GetAsync(UserId);
+    }
+
+    [Authorize]
+    [HttpPost]
+    public async Task PostAsync()
+    {
+        await _billRepository.AddAsync(UserId);
     }
 
     [NonAction]

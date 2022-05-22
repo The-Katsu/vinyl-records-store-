@@ -1,5 +1,23 @@
 import {$hostb, $authHostb} from "./index";
-import jwt_decode from "jwt-decode";
+
+export const addToBasket = async (id) => {
+    const {data} = await $authHostb.post('api/Basket?recordId=' + id)
+    return data
+}
+
+export const postBasket = async () => {
+    const {data} = await $authHostb.post('api/Bill')
+}
+
+export const getBasket = async() => {
+    const {data} = await $authHostb.get('api/Basket')
+    return await data
+}
+
+export const getBills = async() => {
+    const {data} = await $authHostb.get('api/Bill')
+    return await data;
+}
 
 export const createGenre = async (genre) => {
     const {data} = await $authHostb.post('api/Genre', genre)

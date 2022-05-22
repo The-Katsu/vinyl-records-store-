@@ -26,4 +26,10 @@ public class Disk : BaseEntity
     public ICollection<Bill?>? Bills { get; set; }
     [JsonIgnore]
     public ICollection<Basket?>? Baskets { get; set; }
+    
+    public Disk()
+    {
+        this.Bills = new List<Bill>();
+        this.Baskets = new List<Basket>();
+    }
 }

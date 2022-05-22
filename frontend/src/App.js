@@ -6,6 +6,7 @@ import {Context} from "./index";
 import {useContext, useEffect, useState} from "react";
 import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
+import {getBasket, getBills} from "./http/deviceAPI";
 
 const App = observer(() => {
      const {user} = useContext(Context)
@@ -13,8 +14,15 @@ const App = observer(() => {
 
     useEffect(() => {
         check().then(data => {
-            user.setUser(true)
+            user.setUser(data.data)
             user.setIsAuth(true)
+            user.setRole(data.data.role)
+            getBasket().then(data => {
+                user.setBasket(data)
+            })
+            getBills().then(data => {
+                user.setBills(data)
+            })
         }).finally(() => setLoading(false))
     }, [])
 

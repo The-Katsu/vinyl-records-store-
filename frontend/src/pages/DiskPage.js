@@ -1,15 +1,36 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom/cjs/react-router-dom";
-import {getArtist, getDisk} from "../http/deviceAPI";
+import {addToBasket, getArtist, getDisk} from "../http/deviceAPI";
+import {Context} from "../index";
 
 const DiskPage = () => {
+    const {user} = useContext(Context)
     const [disk, setDisk] = useState('')
     const [artist, setArtist] = useState('')
     const {id} = useParams()
     useEffect(() => {
         getDisk(id).then(data => setDisk(data))
     }, [])
+
+    const buy = async () => {
+        try {
+            if (!user.isAuth) {
+                throw new Error("Перед покупкой авторизуйтесь")
+            }
+            try{
+
+                const response = await addToBasket(id)
+            }
+            catch (e) {
+                alert("Вы уже добавили этот диск в корзину")
+            }
+        }
+        catch (e){
+            alert(e.response.data.message)
+        }
+    }
+
 
     return (
         <Container className={'mt-3'}>
@@ -38,7 +59,7 @@ const DiskPage = () => {
                         <h3 className={'d-flex align-items-center justify-content-center'}>
                             {disk.price} Р
                         </h3>
-                        <Button variant={"outline-dark"}>
+                        <Button variant={"outline-dark"} onClick={buy}>
                             Добавить в корзину
                         </Button>
                     </Card>

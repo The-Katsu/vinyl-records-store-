@@ -1,9 +1,11 @@
+using System.Text.Json.Serialization;
 using Application.Shop;
-using Infrastructure.Shop;
+using AuthApi.DependencyInjections;
 using Infrastructure.Shop.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using DependencyInjections = Infrastructure.Shop.DependencyInjections;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +14,12 @@ builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(conte
 var configuration = builder.Configuration;
 
 // Add services to the container.
-builder.Services.AddPersistence(configuration);
+PersistenceInjection.AddPersistence(builder.Services, configuration);
+DependencyInjections.AddPersistence(builder.Services, configuration);
 builder.Services.AddApplication(configuration);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x =>
+    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

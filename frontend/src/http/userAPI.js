@@ -23,8 +23,8 @@ export const sendCode = async (email) => {
     return response
 }
 
-const getUser = async () => {
-    const response = await $authHosta.get('/user')
+export const getUser = async () => {
+    const response = $authHosta.get('/user')
     return response
 }
 
